@@ -24,11 +24,11 @@ public class User {
 	private String contactNo;
 	@Column(name = "gender")
 	private String gender;
-	@Column(name = "isAdmin")
-	private boolean isAdmin;
+	@Column(name = "role")
+	private String role;
 
 	public User(int userId, String name, String email, String password, String contactNo, String gender,
-			boolean isAdmin) {
+			String role) {
 		super();
 		this.userId = userId;
 		this.name = name;
@@ -36,7 +36,7 @@ public class User {
 		this.password = password;
 		this.contactNo = contactNo;
 		this.gender = gender;
-		this.isAdmin = isAdmin;
+		this.role = role;
 	}
 
 	public int getUserId() {
@@ -87,18 +87,18 @@ public class User {
 		this.gender = gender;
 	}
 
-	public boolean isAdmin() {
-		return isAdmin;
+	public String getRole() {
+		return role;
 	}
 
-	public void setAdmin(boolean isAdmin) {
-		this.isAdmin = isAdmin;
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", password=" + password
-				+ ", contactNo=" + contactNo + ", gender=" + gender + ", isAdmin=" + isAdmin + "]";
+				+ ", contactNo=" + contactNo + ", gender=" + gender + ", role=" + role + "]";
 	}
 
 }
