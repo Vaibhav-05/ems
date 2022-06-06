@@ -1,21 +1,37 @@
 package com.ems.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "user")
 public class User {
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@Column(name = "userId")
 	private int userId;
-	private String firstName;
-	private String lastName;
+	@Column(name = "name")
+	private String name;
+	@Column(name = "email")
 	private String email;
+	@Column(name = "passsword")
 	private String password;
+	@Column(name = "contactNo")
 	private String contactNo;
+	@Column(name = "gender")
 	private String gender;
+	@Column(name = "isAdmin")
 	private boolean isAdmin;
 
-	public User(int userId, String firstName, String lastName, String email, String password, String contactNo,
-			String gender, boolean isAdmin) {
+	public User(int userId, String name, String email, String password, String contactNo, String gender,
+			boolean isAdmin) {
 		super();
 		this.userId = userId;
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.name = name;
 		this.email = email;
 		this.password = password;
 		this.contactNo = contactNo;
@@ -31,20 +47,12 @@ public class User {
 		this.userId = userId;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getName() {
+		return name;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getEmail() {
@@ -89,9 +97,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", password=" + password + ", contactNo=" + contactNo + ", gender=" + gender + ", isAdmin=" + isAdmin
-				+ "]";
+		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", password=" + password
+				+ ", contactNo=" + contactNo + ", gender=" + gender + ", isAdmin=" + isAdmin + "]";
 	}
 
 }
